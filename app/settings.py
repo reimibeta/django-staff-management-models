@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # django rest-framework
+    'rest_framework',
+    # wallets
+    'wallet_models.apps.WalletConfig',
+    # staff management
+    'staff_models.staffs.apps.StaffConfig',
+    'staff_models.staff_groups.apps.StaffGroupConfig',
+    'staff_management_models.staff_group_payments.apps.StaffGroupPaymentsConfig',
+    # Filter
+    'django_admin_listfilter_dropdown',
 ]
 
 MIDDLEWARE = [
