@@ -7,9 +7,12 @@ from django.dispatch import receiver
 
 # from pcr_models.products.product_accounts.models import ProductAccount
 from staff_models.staff_groups.class_models.staff_worker import StaffWorker
-from wallet_models.wallet_models.wallet import Wallet
+# from wallet_models.wallet_models.wallet import Wallet
 
 # from staff_management_models.classes.balances.outlets.balance_outlet import BalanceOutlet
+from wallet_models.class_models.wallet import Wallet
+from wallet_models.class_projects.balances.outlets.balance_outlet import BalanceOutlet
+
 from staff_management_models.staff_group_payments.class_projects.staff_payment_status_choice import \
     StaffPaymentStatusChoice
 

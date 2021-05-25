@@ -11,3 +11,4 @@ mysqlclient==2.0.3
 Pillow==8.2.0
 rest-framework-utils @ git+https://github.com/reimibeta/django-rest-framework-utils.git
 staff-models @ git+https://github.com/reimibeta/django-staff-models.git
+wallet-models @ git+https://github.com/reimibeta/django-wallet-models.git
