@@ -11,10 +11,10 @@ import setuptools
 
 setuptools.setup(
     name='staff_management_models',
-    version='1.0.4',
+    version='1.0.5',
     packages=setuptools.find_packages(),
     install_requires=[
-        'staff-models @ git+https://github.com/reimibeta/django-staff-models.git@4a245b6b9804dd897e98ca3af748ee7f8aae294d',
+        'staff-models @ git+https://github.com/reimibeta/django-staff-models.git@f2a11ab66d78d2133b564419d69de9c402562b37',
     ]
     # scripts=['manage.py']
 )
