@@ -17,10 +17,22 @@ from staff_management_models.staff_group_payments.class_projects.staff_payment_s
     StaffPaymentStatusChoice
 
 
+class StaffWorkerPaymentGroup(models.Model):
+    pay_date = models.DateField(default=DateTime.datenow)
+
+    def __str__(self):
+        return "{}".format(self.pay_date)
+
+
 class StaffWorkerPayment(models.Model):
+    payment_group = models.ForeignKey(
+        StaffWorkerPaymentGroup,
+        on_delete=models.CASCADE,
+        blank=True, null=True
+    )
     account = models.ForeignKey(Wallet, on_delete=models.CASCADE)
     staff = models.ForeignKey(StaffWorker, on_delete=models.CASCADE)
-    pay_date = models.DateField(default=DateTime.datenow)
+    # pay_date = models.DateField(default=DateTime.datenow)
     amount = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00))
     pay_status = models.CharField(
         max_length=60,
