@@ -4,6 +4,7 @@ from django.db.models.functions import TruncMonth
 from django.http import JsonResponse
 from django.urls import path
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter, DropdownFilter
+from staff_models.staff_groups.class_models.staff_worker import StaffWorker
 
 from staff_management_models.staff_group_payments.class_models.staff_worker_payment import \
     StaffWorkerPayment, StaffWorkerPaymentGroup
@@ -110,6 +111,18 @@ admin.site.register(StaffWorkerPayment, StaffWorkerPaymentAdmin)
 class StaffWorkerPaymentInlineAdmin(admin.TabularInline):
     extra = 0
     model = StaffWorkerPayment
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        # stock
+        if db_field.name == "staff":
+            try:
+                # parent_id = request.resolver_match.args[0]
+                kwargs["queryset"] = StaffWorker.objects.filter(
+                    is_active=True
+                )
+            except IndexError:
+                pass
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 # group payment
