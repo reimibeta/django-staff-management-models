@@ -9,6 +9,6 @@ html-render-utils @ git+https://github.com/reimibeta/django-html-render-utils.gi
 image-utils @ git+https://github.com/reimibeta/django-image-utils.git@145c80c2a8de0ac59c648671e3242578b6efbc7d
 mysqlclient==2.0.3
 Pillow==8.2.0
-rest-framework-utils @ git+https://github.com/reimibeta/django-rest-framework-utils.git@b7ec67b0138d1a8277f3418edadc5451aa7a41c4
-staff-models @ git+https://github.com/reimibeta/django-staff-models.git@e36b9529cbdb2a83fa0e5a2cca7b8a85e048577a
+rest-framework-utils @ git+https://github.com/reimibeta/django-rest-framework-utils.git@764007b810f1c3609cca6c0e146da746531aa929
+staff-models @ git+https://github.com/reimibeta/django-staff-models.git@993fd6e1a081f077a7f37ae2a7ad263b3db14d18
 wallet-models @ git+https://github.com/reimibeta/django-wallet-models.git@bff0385071659f121f3d7ce5be48bfa93af4a4c4

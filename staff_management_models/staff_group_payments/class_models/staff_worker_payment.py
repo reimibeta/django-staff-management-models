@@ -13,7 +13,7 @@ from staff_models.staff_groups.class_models.staff_worker import StaffWorker
 from wallet_models.class_models.wallet import Wallet
 from wallet_models.class_projects.balances.outlets.balance_outlet import BalanceOutlet
 
-from staff_management_models.staff_group_payments.class_projects.staff_payment_status_choice import \
+from staff_management_models.staff_group_payments.class_apps.staff_payment_status_choice import \
     StaffPaymentStatusChoice
 
 

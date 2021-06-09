@@ -4,7 +4,7 @@ import datetime_utils.date_time
 from decimal import Decimal
 from django.db import migrations, models
 import django.db.models.deletion
-import staff_management_models.staff_group_payments.class_projects.staff_payment_status_choice
+import staff_management_models.staff_group_payments.class_apps.staff_payment_status_choice
 
 
 class Migration(migrations.Migration):
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('amount', models.DecimalField(decimal_places=2, default=Decimal('0'), max_digits=20)),
-                ('pay_status', models.CharField(choices=[('DAILY', 'daily'), ('MONTHLY', 'monthly'), ('YEARLY', 'yearly'), ('OPTIONAL', 'optional')], default=staff_management_models.staff_group_payments.class_projects.staff_payment_status_choice.StaffPaymentStatusChoice['DAILY'], max_length=60)),
+                ('pay_status', models.CharField(choices=[('DAILY', 'daily'), ('MONTHLY', 'monthly'), ('YEARLY', 'yearly'), ('OPTIONAL', 'optional')], default=staff_management_models.staff_group_payments.class_apps.staff_payment_status_choice.StaffPaymentStatusChoice['DAILY'], max_length=60)),
                 ('account', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='wallet_models.wallet')),
                 ('payment_group', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='staff_group_payments.staffworkerpaymentgroup')),
                 ('staff', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='staff_groups.staffworker')),
