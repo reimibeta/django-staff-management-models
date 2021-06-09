@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/staffs/', include('staff_models.staffs.urls')),
+    path('api/staff-managements/', include('staff_management_models.staff_group_payments.urls')),
 ]

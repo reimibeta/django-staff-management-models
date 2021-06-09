@@ -28,7 +28,8 @@ class StaffWorkerPayment(models.Model):
     payment_group = models.ForeignKey(
         StaffWorkerPaymentGroup,
         on_delete=models.CASCADE,
-        blank=True, null=True
+        blank=True, null=True,
+        related_name='staff_worker_payment'
     )
     account = models.ForeignKey(Wallet, on_delete=models.CASCADE)
     staff = models.ForeignKey(StaffWorker, on_delete=models.CASCADE)
