@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from django_datetime.date_time import datetime
+from django_datetime.datetime import datetime
 from django.db import models
 from django.db.models.signals import post_save, pre_save, pre_delete
 from django.dispatch import receiver
