@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from datetime_utils.date_time import DateTime
+from django_datetime.date_time import datetime
 from django.db import models
 from django.db.models.signals import post_save, pre_save, pre_delete
 from django.dispatch import receiver
@@ -11,14 +11,14 @@ from staff_models.staff_groups.class_models.staff_worker import StaffWorker
 
 # from staff_management_models.classes.balances.outlets.balance_outlet import BalanceOutlet
 from wallet_models.class_models.wallet import Wallet
-from wallet_models.class_projects.balances.outlets.balance_outlet import BalanceOutlet
+from wallet_models.class_apps.balances.outlets.balance_outlet import BalanceOutlet
 
 from staff_management_models.staff_group_payments.class_apps.staff_payment_status_choice import \
     StaffPaymentStatusChoice
 
 
 class StaffWorkerPaymentGroup(models.Model):
-    pay_date = models.DateField(default=DateTime.datenow)
+    pay_date = models.DateField(default=datetime.dnow())
 
     def __str__(self):
         return "{}".format(self.pay_date)
