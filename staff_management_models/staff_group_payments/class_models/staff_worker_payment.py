@@ -10,8 +10,8 @@ from staff_models.staff_groups.class_models.staff_worker import StaffWorker
 # from wallet_models.wallet_models.wallet import Wallet
 
 # from staff_management_models.classes.balances.outlets.balance_outlet import BalanceOutlet
+from wallet_models.class_apps.wallets.wallet_outlet import WalletAccountOutlet
 from wallet_models.class_models.wallet import Wallet
-from wallet_models.class_apps.balances.outlets.balance_outlet import BalanceOutlet
 
 from staff_management_models.staff_group_payments.class_apps.staff_payment_status_choice import \
     StaffPaymentStatusChoice
@@ -49,7 +49,8 @@ class StaffWorkerPayment(models.Model):
 def add(sender, instance, created, **kwargs):
     if created:
         # account
-        BalanceOutlet.outlet(
+        # BalanceOutlet()
+        WalletAccountOutlet.outlet_account(
             amount=instance.amount,
             account_pk=instance.account.id
         )
@@ -63,19 +64,19 @@ def update(sender, instance, **kwargs):
         old_value = StaffWorkerPayment.objects.get(id=instance.id)
         # account
         if instance.account.id == old_value.account.id:
-            BalanceOutlet.update(
+            WalletAccountOutlet.update_outlet_account(
                 new_amount=instance.amount,
                 old_amount=old_value.amount,
                 account_pk=instance.account.id
             )
         else:
             # refund
-            BalanceOutlet.refund(old_value.amount, old_value.account.id)
+            WalletAccountOutlet.refund_outlet_account(old_value.amount, old_value.account.id)
             # outlet
-            BalanceOutlet.outlet(instance.amount, instance.account.id)
+            WalletAccountOutlet.outlet_account(instance.amount, instance.account.id)
 
 
 @receiver(pre_delete, sender=StaffWorkerPayment)
 def delete(sender, instance, using, **kwargs):
     old_value = StaffWorkerPayment.objects.get(id=instance.id)
-    BalanceOutlet.refund(old_value.amount, old_value.account.id)
+    WalletAccountOutlet.refund_outlet_account(old_value.amount, old_value.account.id)
